@@ -5,6 +5,7 @@
 //      Map size can be changed. Has score display and X,Y, and angle A display
 //
 //		Use A D to turn left and right, W S to go forwards and backwards. cannot move through walls.
+//		!!!! Draw map using Lines 46-63!!!!! 
 //
 #include <iostream>
 #include <chrono>
@@ -14,9 +15,6 @@
 using namespace std;
 #include <Windows.h>
 #include <stdio.h>
-
-
-
 
 int nScreenWidth = 120;
 int nScreenHeight = 40;
@@ -42,6 +40,7 @@ int main() {
 	SetConsoleActiveScreenBuffer(hConsole);
 	DWORD dwBytesWritten = 0;
 
+	//DRAW MAP HERE USING '#' FOR PILLARS AND '.' for open space
 	wstring map;
 	map += L"################";
 	map += L"#..............#";
@@ -185,9 +184,6 @@ int main() {
 					else if (b < 0.9)   screen[y * nScreenWidth + x] = '-';
 					else                screen[y * nScreenWidth + x] = ' ';
 
-					// not sure if this will do anything
-					//after tests keep this commented. vvvvvvvv
-					//screen[y * nScreenWidth + x] = '.';
 				}
 			}
 		}
